@@ -13,15 +13,16 @@ export class AuthService {
     return this.angularFireAuth.auth.signInWithEmailAndPassword(usuario.email, usuario.senha)
   }
 
-  cadastro( usuario: Usuario) {
-    return this.angularFireAuth.auth.createUserWithEmailAndPassword(usuario.email, usuario.senha); 
+  cadastro(usuario: Usuario) {
+    return this.angularFireAuth.auth.createUserWithEmailAndPassword(usuario.email, usuario.senha);
   }
 
   logout() {
 
   }
-  
-  getAuth() {
 
+  getAuth() {
+    this.angularFireAuth.auth;
+    //guarda de rotas, retorna o objeto do usuario, identificando se está logado. 
   }
 }
