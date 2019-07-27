@@ -66,7 +66,7 @@ export class LoginPage implements OnInit {
 
       //Pegar informações do usuario:
       //const user = await this.authService.cadastro(this.usuarioCadastro)
-      //user.user.uid
+      //user.user.uid 
     } catch (erro) {
       console.error(erro);
       let message: string
