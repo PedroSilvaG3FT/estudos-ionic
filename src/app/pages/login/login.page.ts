@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides, LoadingController } from '@ionic/angular';
 import { Usuario } from 'src/app/models/usuario';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +21,7 @@ export class LoginPage implements OnInit {
 
   constructor(
     private loadingCtrl: LoadingController,
+    private authService: AuthService,
   ) { }
 
   ngOnInit() {
@@ -45,8 +47,18 @@ export class LoginPage implements OnInit {
   login() {
 
   }
+ 
+  async cadastro() {
+    await this.loading.presentLoading();
 
-  cadastro() {
+    try {
+      await this.authService.cadastro(this.usuarioCadastro)
+    } catch(erro) {
+      console.error(erro);
+    } finally {
+      this.loading.dismiss();
+    }
+     
     console.log(this.usuarioCadastro);
   }
 
