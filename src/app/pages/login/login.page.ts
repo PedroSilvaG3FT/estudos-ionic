@@ -56,6 +56,7 @@ export class LoginPage implements OnInit {
       await this.authService.cadastro(this.usuarioCadastro)
     } catch(erro) {
       console.error(erro);
+      this.presentToast(erro.message)
     } finally {
       this.loading.dismiss();
     }
