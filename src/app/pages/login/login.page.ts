@@ -45,8 +45,17 @@ export class LoginPage implements OnInit {
     }
   }
 
-  login() {
+  async login() {
+    await this.presentLoading()
 
+    try {
+      await this.authService.login(this.usuarioLogin)
+    } catch (erro) {
+      console.error(erro);
+      this.presentToast(erro.message)
+    } finally {
+      this.loading.dismiss();
+    }
   }
 
   async cadastro() {
