@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSlides, LoadingController } from '@ionic/angular';
+import { IonSlides, LoadingController, ToastController } from '@ionic/angular';
 import { Usuario } from 'src/app/models/usuario';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -20,6 +20,7 @@ export class LoginPage implements OnInit {
   private loading: any;
 
   constructor(
+    private toastCtrl: ToastController,
     private loadingCtrl: LoadingController,
     private authService: AuthService,
   ) { }
@@ -67,6 +68,15 @@ export class LoginPage implements OnInit {
       message: 'Aguarde',
     });
     return this.loading.present();
+  }
+
+  async presentToast(message: string) {
+    const toast = await this.toastCtrl.create({
+      message, 
+      //No EQ se o nome do parametro recebido for o mesmo da var pode usar assim ao inves de message: message.
+      duration: 2000
+    });
+    toast.present();
   }
 
 }
