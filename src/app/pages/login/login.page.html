@@ -23,11 +23,11 @@
         <span>Login</span>
 
         <ion-item class="ion-margin-top" lines="none">
-          <ion-input type="email" placeholder="E-mail"></ion-input>
+          <ion-input type="email" placeholder="E-mail" [(ngModel)]="usuarioLogin.email"></ion-input>
         </ion-item>
 
         <ion-item class="ion-margin-top" lines="none">
-          <ion-input type="password" placeholder="Senha"></ion-input>
+          <ion-input type="password" placeholder="Senha" [(ngModel)]="usuarioLogin.senha"></ion-input>
         </ion-item>
 
         <ion-button class="ion-margin-top" color="light" expand="block">
@@ -42,15 +42,15 @@
         <span>Cadastro</span>
 
         <ion-item class="ion-margin-top" lines="none">
-          <ion-input type="text" placeholder="Nome"></ion-input>
+          <ion-input type="text" placeholder="Nome" ></ion-input>
         </ion-item>
 
         <ion-item class="ion-margin-top" lines="none">
-          <ion-input type="email" placeholder="E-mail"></ion-input>
+          <ion-input type="email" placeholder="E-mail" [(ngModel)]="usuarioCadastro.email"></ion-input>
         </ion-item>
 
         <ion-item class="ion-margin-top" lines="none">
-          <ion-input type="password" placeholder="Senha"></ion-input>
+          <ion-input type="password" placeholder="Senha" [(ngModel)]="usuarioCadastro.email"></ion-input>
         </ion-item>
 
         <ion-button class="ion-margin-top" color="light" expand="block">
@@ -64,7 +64,7 @@
 
   <div class="ocean">
     <div class="waves" [ngStyle]="{ 'background-position-x': wavesPosition + 'px'  }"></div>
-    <!-- ngStyle Para ser um valor dinamico -->
+    <!-- ngStyle Para ser um valor dinamico --> 
 
     <div class="container bottom ion-text-center">
       <span>Texto de teste para esse aplicativo aqui</span>

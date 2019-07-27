@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
+import { Usuario } from 'src/app/models/usuario';
 
 @Component({
   selector: 'app-login',
@@ -8,6 +9,8 @@ import { IonSlides } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
   @ViewChild(IonSlides) slides : IonSlides; //1
+  public usuarioLogin: Usuario = {};
+  public usuarioCadastro: Usuario = {};
 
   public wavesPosition: number = 0;   //fazer o movimento das ondas EXEMPLO 2
   public wavesDiference: number = 80; //+= para incrementar uma variavel com outra
