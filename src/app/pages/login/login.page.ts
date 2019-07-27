@@ -52,11 +52,7 @@ export class LoginPage implements OnInit {
     const loading = await this.loadingCtrl.create({
       message: 'Aguarde',
     });
-    await loading.present();
-
-    const { role, data } = await loading.onDidDismiss();
-
-    console.log('Loading dismissed!');
+    return loading.present();
   }
 
 }
