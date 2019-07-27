@@ -30,7 +30,7 @@
           <ion-input type="password" placeholder="Senha" [(ngModel)]="usuarioLogin.senha"></ion-input>
         </ion-item>
 
-        <ion-button class="ion-margin-top" color="light" expand="block">
+        <ion-button class="ion-margin-top" color="light" expand="block" (click)="login()">
           Entrar
         </ion-button>
 
@@ -50,10 +50,10 @@
         </ion-item>
 
         <ion-item class="ion-margin-top" lines="none">
-          <ion-input type="password" placeholder="Senha" [(ngModel)]="usuarioCadastro.email"></ion-input>
+          <ion-input type="password" placeholder="Senha" [(ngModel)]="usuarioCadastro.senha"></ion-input>
         </ion-item>
 
-        <ion-button class="ion-margin-top" color="light" expand="block">
+        <ion-button class="ion-margin-top" color="light" expand="block" (click)="cadastro()">
           Cadastrar
         </ion-button>
 

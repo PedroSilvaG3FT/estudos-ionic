@@ -38,4 +38,12 @@ export class LoginPage implements OnInit {
     }
   }
 
+  login() {
+
+  }
+
+  cadastro() {
+    console.log(this.usuarioCadastro);
+  }
+
 }
