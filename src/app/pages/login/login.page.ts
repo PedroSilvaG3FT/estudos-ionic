@@ -16,6 +16,8 @@ export class LoginPage implements OnInit {
   public wavesDiference: number = 80; //+= para incrementar uma variavel com outra
                                       //só tem a fuidez por causa do transition na classe no CSS.
 
+  private loading: any;
+
   constructor(
     private loadingCtrl: LoadingController,
   ) { }
@@ -49,10 +51,10 @@ export class LoginPage implements OnInit {
   }
 
   async presentLoading() {
-    const loading = await this.loadingCtrl.create({
+     this.loading = await this.loadingCtrl.create({
       message: 'Aguarde',
     });
-    return loading.present();
+    return this.loading.present();
   }
 
 }
