@@ -49,7 +49,7 @@ export class LoginPage implements OnInit {
   }
  
   async cadastro() {
-    await this.loading.presentLoading();
+    await this.presentLoading();
 
     try {
       await this.authService.cadastro(this.usuarioCadastro)
