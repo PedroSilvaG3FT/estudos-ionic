@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSlides } from '@ionic/angular';
+import { IonSlides, LoadingController } from '@ionic/angular';
 import { Usuario } from 'src/app/models/usuario';
 
 @Component({
@@ -16,7 +16,9 @@ export class LoginPage implements OnInit {
   public wavesDiference: number = 80; //+= para incrementar uma variavel com outra
                                       //só tem a fuidez por causa do transition na classe no CSS.
 
-  constructor() { }
+  constructor(
+    private loadingCtrl: LoadingController,
+  ) { }
 
   ngOnInit() {
 
@@ -44,6 +46,17 @@ export class LoginPage implements OnInit {
 
   cadastro() {
     console.log(this.usuarioCadastro);
+  }
+
+  async presentLoading() {
+    const loading = await this.loadingCtrl.create({
+      message: 'Aguarde',
+    });
+    await loading.present();
+
+    const { role, data } = await loading.onDidDismiss();
+
+    console.log('Loading dismissed!');
   }
 
 }

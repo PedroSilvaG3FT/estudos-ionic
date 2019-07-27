@@ -14,7 +14,7 @@ export class AuthService {
   }
 
   cadastro( usuario: Usuario) {
-    return this.angularFireAuth.auth.createUserWithEmailAndPassword(usuario.email, usuario.senha);
+    return this.angularFireAuth.auth.createUserWithEmailAndPassword(usuario.email, usuario.senha); 
   }
 
   logout() {
