@@ -5,6 +5,6 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class Auth.GuardGuard implements  {
+export class AuthGuard implements  {
   
 }

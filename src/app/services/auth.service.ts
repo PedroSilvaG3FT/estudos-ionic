@@ -24,5 +24,6 @@ export class AuthService {
   getAuth() {
     this.angularFireAuth.auth;
     //guarda de rotas, retorna o objeto do usuario, identificando se está logado. 
+    //criar guards ionic generate guard guards/"nome"
   }
 }
