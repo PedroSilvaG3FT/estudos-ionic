@@ -1,9 +1,9 @@
 export interface Produto {
     id?: string;
-    name?: string;
-    description?: string;
-    picture?: string;
-    price?: string;
+    nome?: string;
+    descricao?: string;
+    imagem?: string;
+    preco?: string;
     createdAt?: number;
     userId?: string;
 }

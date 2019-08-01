@@ -32,16 +32,16 @@
     <ion-item-sliding *ngFor="let produto of produtos">
       <ion-item button [routerLink]="['/produto-detalhe', produto.id]">
         <ion-avatar slot="start">
-          <img [src]="produto.picture">
+          <img [src]="produto.imagem">
         </ion-avatar>
 
         <ion-label>
-          {{ produto.name }}
-          <p>{{ produto.description }}</p>
+          {{ produto.nome }}
+          <p>{{ produto.descricao }}</p>
           <p>{{ produto.createdAt | date: 'short' }}</p>
         </ion-label>
 
-        <ion-note color="primary" slot="end" *ngIf="produto.price">{{ produto.price | currency: 'BRL' }}</ion-note>
+        <ion-note color="primary" slot="end" *ngIf="produto.price">{{ produto.preco | currency: 'BRL' }}</ion-note>
       </ion-item>
 
       <ion-item-options side="end">
