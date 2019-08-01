@@ -6,9 +6,10 @@ import { LoginGuard } from './guards/login.guard';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'home', loadChildren: './pages/home/home.module#HomePageModule', canActivate: [AuthGuard] },
-  //essa rota só sera ativada se o guard especificado for true que é um usuario logado
-  //Assim vai sempre verificar se tem usuario ou não através do metodo do firebase chamado pelo getAuth()
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule', canActivate: [LoginGuard]},
+  
+  { path: 'produto-detalhe/', loadChildren: './pages/produto-detalhe/produto-detalhe.module#ProdutoDetalhePageModule', canActivate: [LoginGuard]},
+  { path: 'produto-detalhe/:id', loadChildren: './pages/produto-detalhe/produto-detalhe.module#ProdutoDetalhePageModule', canActivate: [LoginGuard]},
 ];
 
 @NgModule({
