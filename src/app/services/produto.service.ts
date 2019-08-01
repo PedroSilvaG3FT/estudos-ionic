@@ -36,4 +36,8 @@ export class ProdutoService {
     return this.produtoCollection.add(produto);
   }
 
+  update(id: string, produto: Produto) {
+    return this.produtoCollection.doc<Produto>(id).update(produto);
+  }
+
 }

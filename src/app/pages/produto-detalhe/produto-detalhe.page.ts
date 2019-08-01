@@ -39,4 +39,30 @@ export class ProdutoDetalhePage implements OnInit {
     });
   }
 
+  async salvarProduto() {
+
+    //pegando id usuario que está realizando operação 
+    this.produto.userId = this.authService.getAuth().currentUser.uid;
+
+    if (this.produtoId) { //Verifica se é para editar
+      try {
+        await this.produtoService.update(this.produtoId, this.produto);
+
+        this.navCtrl.navigateBack('/home');
+      } catch (error) {
+        console.log("ERRO AO EDITAR:", error)
+      }
+    } else { // Aqui cai para inserir senão estiver um id
+      this.produto.dataCriacao = new Date().getTime();
+
+      try {
+        await this.produtoService.save(this.produto);
+
+        this.navCtrl.navigateBack('/home');
+      } catch (error) {
+        console.log("ERRO AO INSERIR:", error)
+      }
+    }
+  }
+
 }

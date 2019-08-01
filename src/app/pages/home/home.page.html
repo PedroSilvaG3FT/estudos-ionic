@@ -38,10 +38,10 @@
         <ion-label>
           {{ produto.nome }}
           <p>{{ produto.descricao }}</p>
-          <p>{{ produto.createdAt | date: 'short' }}</p>
+          <p>{{ produto.dataCriacao | date: 'short' }}</p>
         </ion-label>
 
-        <ion-note color="primary" slot="end" *ngIf="produto.price">{{ produto.preco | currency: 'BRL' }}</ion-note>
+        <ion-note color="primary" slot="end" *ngIf="produto.preco">{{ produto.preco | currency: 'BRL' }}</ion-note>
       </ion-item>
 
       <ion-item-options side="end">
