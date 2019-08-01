@@ -1,12 +1,12 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Surf Shop</ion-title>
+    <ion-title>Produtos</ion-title>
   </ion-toolbar>
 </ion-header>
  
 <ion-content>
   <!-- loading animado da lista (ion-skeleton-text)-->
-  <ion-list *ngIf="!products.length">
+  <ion-list *ngIf="!produtos.length">
     <!-- Quantidade de itens fake -->
     <ion-item *ngFor="let item of [0, 1, 2, 3]">
       <ion-avatar slot="start">
@@ -29,23 +29,23 @@
   <!-- lista já carregada -->
   <ion-list>
     <!-- Slide para aparecer a opção de excluir -->
-    <ion-item-sliding *ngFor="let product of products">
-      <ion-item button [routerLink]="['/details', product.id]">
+    <ion-item-sliding *ngFor="let produto of produtos">
+      <ion-item button [routerLink]="['/details', produto.id]">
         <ion-avatar slot="start">
-          <img [src]="product.picture">
+          <img [src]="produto.picture">
         </ion-avatar>
 
         <ion-label>
-          {{ product.name }}
-          <p>{{ product.description }}</p>
-          <p>{{ product.createdAt | date: 'short' }}</p>
+          {{ produto.name }}
+          <p>{{ produto.description }}</p>
+          <p>{{ produto.createdAt | date: 'short' }}</p>
         </ion-label>
 
-        <ion-note color="primary" slot="end" *ngIf="product.price">{{ product.price | currency: 'BRL' }}</ion-note>
+        <ion-note color="primary" slot="end" *ngIf="produto.price">{{ produto.price | currency: 'BRL' }}</ion-note>
       </ion-item>
 
       <ion-item-options side="end">
-        <ion-item-option color="danger" (click)="deleteProduct(product.id)">
+        <ion-item-option color="danger" (click)="deleteProduct(produto.id)">
           <ion-icon slot="top" name="trash"></ion-icon>
           Excluir
         </ion-item-option>
