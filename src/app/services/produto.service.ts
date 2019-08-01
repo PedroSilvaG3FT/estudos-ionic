@@ -32,4 +32,8 @@ export class ProdutoService {
     return this.produtoCollection.doc<Produto>(id).valueChanges();
   }
 
+  save(produto: Produto) {
+    return this.produtoCollection.add(produto);
+  }
+
 }
