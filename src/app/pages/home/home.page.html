@@ -30,7 +30,7 @@
   <ion-list>
     <!-- Slide para aparecer a opção de excluir -->
     <ion-item-sliding *ngFor="let produto of produtos">
-      <ion-item button [routerLink]="['/produto-detalhe', produto.id]">
+      <ion-item >
         <ion-avatar slot="start">
           <img [src]="produto.imagem">
         </ion-avatar>
@@ -48,6 +48,11 @@
         <ion-item-option color="danger" (click)="delete(produto.id)">
           <ion-icon slot="top" name="trash"></ion-icon>
           Excluir
+        </ion-item-option>
+
+        <ion-item-option color="medium" button [routerLink]="['/produto-detalhe', produto.id]">
+          <ion-icon slot="top" name="md-create"></ion-icon>
+          Editar
         </ion-item-option>
       </ion-item-options>
     </ion-item-sliding>
