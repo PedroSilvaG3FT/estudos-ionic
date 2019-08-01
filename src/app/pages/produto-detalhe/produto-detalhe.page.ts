@@ -29,7 +29,9 @@ export class ProdutoDetalhePage implements OnInit {
 
   ngOnInit() { }
 
-  
+  ngOnDestroy() {
+    if (this.produtoSubscription) this.produtoSubscription.unsubscribe();
+  }
 
   carregaProduto() {
     this.produtoSubscription = this.produtoService.getById(this.produtoId).subscribe(data => {
