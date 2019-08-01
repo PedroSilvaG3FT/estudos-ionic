@@ -15,7 +15,7 @@ export class ProdutoService {
     //Colocando nome na collection/tabela do firebase
   }
 
-  getProducts() {
+  getAll() { 
     return this.produtoCollection.snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
