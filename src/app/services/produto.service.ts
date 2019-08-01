@@ -40,4 +40,8 @@ export class ProdutoService {
     return this.produtoCollection.doc<Produto>(id).update(produto);
   }
 
+  delete(id: string) {
+    return this.produtoCollection.doc(id).delete();
+  }
+
 }

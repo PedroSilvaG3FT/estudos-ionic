@@ -42,4 +42,12 @@ export class HomePage implements OnInit {
     }
   }
 
+  async delete(id: string) {
+    try {
+      await this.produtoService.delete(id);
+    } catch (error) {
+      console.log("ERRO AO DELETAR :", error)
+    }
+  }
+
 }
