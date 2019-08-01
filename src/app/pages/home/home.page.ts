@@ -10,20 +10,26 @@ import { ProdutoService } from 'src/app/services/produto.service';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  public products = new Array<Produto>();
-  private productsSubscription: Subscription;
+  public produtos = new Array<Produto>();
+  private productoSubscription: Subscription;
 
   constructor(
     private authService: AuthService,
     private produtoService: ProdutoService
   ) { 
     //Chamando lista de produtos
-    this.productsSubscription = this.produtoService.getAll().subscribe(data => {
-      this.products = data;
+    this.productoSubscription = this.produtoService.getAll().subscribe(data => {
+      this.produtos = data;
     });
   }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy() {
+    //Quando o usuario sair dessa pagina irá destruir essa lista, para não carregar sem necessidade
+    //gerando assim uma melhor performance ao app
+    this.productoSubscription.unsubscribe();
   }
 
   async logout() {
