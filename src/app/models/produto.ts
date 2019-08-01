@@ -4,6 +4,6 @@ export interface Produto {
     descricao?: string;
     imagem?: string;
     preco?: string;
-    createdAt?: number;
+    dataCriacao?: number;
     userId?: string;
 }
