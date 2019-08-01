@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
 import { Produto } from '../models/produto';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,4 +14,18 @@ export class ProdutoService {
     this.produtoCollection = this.angularFireAuth.collection<Produto>('Produto');
     //Colocando nome na collection/tabela do firebase
   }
+
+  getProducts() {
+    return this.produtoCollection.snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+
+          return { id, ...data };
+        });
+      })
+    );
+  }
+
 }
