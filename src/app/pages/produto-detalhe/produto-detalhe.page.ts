@@ -24,9 +24,17 @@ export class ProdutoDetalhePage implements OnInit {
   ) { 
     //buscando um id de produto
     this.produtoId = this.activatedRoute.snapshot.params['id'];
+    if (this.produtoId) this.carregaProduto();
   }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  
+
+  carregaProduto() {
+    this.produtoSubscription = this.produtoService.getById(this.produtoId).subscribe(data => {
+      this.produto = data;
+    });
   }
 
 }
