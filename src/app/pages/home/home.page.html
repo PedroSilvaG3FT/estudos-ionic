@@ -30,7 +30,7 @@
   <ion-list>
     <!-- Slide para aparecer a opção de excluir -->
     <ion-item-sliding *ngFor="let produto of produtos">
-      <ion-item button [routerLink]="['/details', produto.id]">
+      <ion-item button [routerLink]="['/produto-detalhe', produto.id]">
         <ion-avatar slot="start">
           <img [src]="produto.picture">
         </ion-avatar>

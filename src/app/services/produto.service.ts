@@ -28,4 +28,8 @@ export class ProdutoService {
     );
   }
 
+  getById(id: string) {
+    return this.produtoCollection.doc<Produto>(id).valueChanges();
+  }
+
 }
